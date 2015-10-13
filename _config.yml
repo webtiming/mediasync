@@ -1,0 +1,12 @@
+name: MediaSync
+markdown: redcarpet
+highlighter: pygments
+#safe: true
+#lsi: false
+baseurl: /mediasync
+
+
+
+syntax-highlighting:
+  enabled : true
+  css: css/syntax.css

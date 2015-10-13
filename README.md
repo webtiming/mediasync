@@ -1,2 +1,4 @@
-# mediasync
-MediaSync is a JavaScrpt library implementing timed playback of HTML5 audio/video, based on the TimingObject 
+# MediaSync
+A generic JavaScript library for precisely timed presentation of HTML5 Audio and Video, using TimingObject/SharedMotion as timing source. 
+
+[MediaSync Homepage](http://webtiming.github.io/mediasync/) 
