@@ -102,7 +102,7 @@ var mediascape = function(_MS_) {
       }
     }
     function onerror() {
-      console.log(err); // TODO: REPORT ERRORS
+      console.log(); // TODO: REPORT ERRORS
       stop();      
     }
 
