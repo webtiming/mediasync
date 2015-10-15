@@ -10,7 +10,10 @@ demojs: index
 Open this page on multiple (audio-capable) devices to appreciate multi-device synchronization.
 
 <div id="demo" style="height:50px"></div>
-<video src="http://seer2.itek.norut.no/fox/thefox.mp4" id="player" style="height:200px"></video>
+<video id="player" style="height:200px">
+	<source src="http://mcorp.no/res/bigbuckbunny.webm" type="video/webm" />
+	<source src="http://mcorp.no/res/bigbuckbunny.m4v" type="video/mp4" />
+</video>
 
 
 
