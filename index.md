@@ -35,12 +35,22 @@ The draft specification for the [timing object](http://webtiming.github.io/timin
 The MediaSync implementation currently depends on [Shared Motion](http://motioncorporation.com), a JavaScript implementation of the [TimingObject](http://webtiming.github.io/timingobject), provided by the [Motion Corporation](http://motioncorporation.com). Shared Motion comes with built-in support for online synchronization. MediaSync will be updated to interface with implementation of TimingObject API. Both MediaSync and Shared Motion are vanilla JavaScript and should run in every modern Web browser.
 
 ## Authors
-- Njål T. Borch [njaal.borch@norut.no](mailto://njaal.borch@norut.no) - [github.com/snarkdoof](https://github.com/snarkdoof)
+
+Njål T. Borch
+
+- [njaal.borch@motioncorporation.com](mailto://njaal.borch@motioncorporation.com)
+- [github.com/snarkdoof](https://github.com/snarkdoof)
+- [twitter.com/njaalborch](https://twitter.com/njaalborch)
 
 ## Acknowledgements
+
 The development of the MediaSync library is funded in part by the [EU FP7 MediaScape project](http://mediascapeproject.eu), and results are contributed as reference implementation to the W3C Multi-device Timing Community Group.
 
-- Ingar M. Arntzen [ingar.arntzen@norut.no](mailto://ingar.arntzen@norut.no) - [github.com/ingararntzen](https://github.com/ingararntzen).
+MediaSync is joint work with Ingar M. Arntzen 
+
+- [ingar.arntzen@motioncorporation.com](mailto://ingar.arntzen@motioncorporation.com)
+- [github.com/ingararntzen](https://github.com/ingararntzen)
+- [twitter.com/ingararntzen](https://twitter.com/ingararntzen)
 
 ## License
 
