@@ -7,7 +7,7 @@ demojs: index
 
 ## MediaSync demo
 
-Open this page on multiple (audio-capable) devices to appreciate multi-device synchronization.
+Open this page on multiple (audio-capable) devices to appreciate multi-device synchronization. If you've got video playback up and running on multiple devices, try reloading one of them to see how that works.
 
 <div id="demo" style="height:50px"></div>
 <video id="player" style="height:200px">
