@@ -15,7 +15,7 @@ Open this page on multiple (audio-capable) devices to appreciate multi-device sy
 	<source src="http://mcorp.no/res/bigbuckbunny.m4v" type="video/mp4" />
 </video>
 
-## Media sync report
+## MediaSync report
 
 The MediaSync libray pushes on quite a few limits in regards to media elements and synchronization.  A report is being written with various analysis of both media elements and the results of the MediaSync libray.  Please have a look at the report if you have or wish to avoid issues.
 
