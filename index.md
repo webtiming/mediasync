@@ -35,7 +35,7 @@ MediaSync is a common purpose library, not optimised for any particular combinat
 
 ## Relation to timing object specification
 
-The draft specification for the [timing object](http://webtiming.github.io/timingobject) specifies [timed playback mode](http://webtiming.github.io/timingobject/#media-elements-and-the-timing-object) an an extension for HTML media elements. The JavaScript MediaSync library provides may provide a good user experience for timed media media, standardization is presumed to bring further improvement with respect to precision, time-to-sync, effectiveness, reliability and interoperability. This is particularly important for a successful experience on mobile. 
+The draft specification for the [timing object](http://webtiming.github.io/timingobject) specifies [timed playback mode](http://webtiming.github.io/timingobject/#media-elements-and-the-timing-object) as an extension for HTML media elements. While the JavaScript MediaSync library may provide a good user experience for timed media media, given certain assumptions, standardization is assumed to bring further improvement with respect to precision, time-to-sync, effectiveness, reliability and interoperability. This is particularly important for a successful experience on mobile. 
 
 
 ## Dependencies
