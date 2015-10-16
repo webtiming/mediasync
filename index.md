@@ -7,13 +7,15 @@ demojs: index
 
 ## MediaSync demo
 
-Open this page on multiple (audio-capable) devices to appreciate multi-device synchronization. If you've got video playback up and running on multiple devices, try reloading one of them to see how that works.
+Open this page on multiple (audio-capable) devices to appreciate live multi-device synchronization. If you've got video playback up and running on multiple devices, try reloading one of them to see how that works.
 
 <div id="demo" style="height:50px"></div>
 <video id="player" style="height:200px">
 	<source src="http://mcorp.no/res/bigbuckbunny.webm" type="video/webm" />
 	<source src="http://mcorp.no/res/bigbuckbunny.m4v" type="video/mp4" />
 </video>
+
+Also, check out more demos on YouTube - [Motion Corporation](https://www.youtube.com/channel/UCJ6nDda6IWhEAJ0TUTQ0P1w)
 
 ## MediaSync report
 
