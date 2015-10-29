@@ -85,10 +85,46 @@ var mediascape = function(_MS_) {
       _options.automute = true;
     }
     var _auto_muted = false;
-    var _motion = motion;
+
+
+    var onchange = function(e) {
+      _bad = 0;
+      _samples = [];
+      _last_skip = null;
+      if (_update_func != undefined) {
+        _update_func(e);          
+      } else {
+        console.log("WARNING: onchange but no update func yet");
+      }
+    }
+
+    var setMotion = function(motion) {
+      _bad = 0;
+      if (_motion) {
+        _motion.off("change", onchange);        
+      }
+      _motion = motion;
+
+      // if motion is a timing object, we add some shortcuts
+      if (_motion.version == 3) {
+        _motion.__defineGetter__("pos", function() {return _motion.query().position});
+        _motion.__defineGetter__("vel", function() {return _motion.query().velocity});
+        _motion.__defineGetter__("acc", function() {return _motion.query().acceleration});
+      }
+
+      _motion.on("change", onchange);
+    };
+
     if (!motion) {
       console.log("WARNING: No motion has been set");
+    } else {
+      //setMotion(motion);      
     }
+
+    elem.addEventListener("paused", onpaused);
+    elem.addEventListener("play", onplay);
+    elem.addEventListener("error", onerror);
+
     var _stopped = false;
 
     function onpaused() {
@@ -102,13 +138,10 @@ var mediascape = function(_MS_) {
       }
     }
     function onerror() {
-      console.log(); // TODO: REPORT ERRORS
+      console.log(err); // TODO: REPORT ERRORS
       stop();      
     }
 
-    elem.addEventListener("paused", onpaused);
-    elem.addEventListener("play", onplay);
-    elem.addEventListener("error", onerror);
 
     var stop = function() {
       _stopped = true;
@@ -127,6 +160,8 @@ var mediascape = function(_MS_) {
     var _perfect = 5;
     var _is_in_sync = false;
 
+    var _motion;
+    
     var _last_skip;
     var _thrashing = 0;
     var skip = function(pos) {
@@ -204,7 +239,7 @@ var mediascape = function(_MS_) {
       if (_stopped) {
         return;
       }
-        var snapshot = _motion.query();
+        var snapshot = query();
         if (loop(snapshot.pos) == last_update) {
           return;
         }
@@ -361,7 +396,7 @@ var mediascape = function(_MS_) {
         return;
       }
 
-      var snapshot = _motion.query();
+      var snapshot = query();
       if (snapshot.vel > 0) {
         if (elem.paused) {
           elem.play();
@@ -468,7 +503,9 @@ var mediascape = function(_MS_) {
     function init() {
       if (_initialized) return;
       _initialized = true;
-
+      if (_motion === undefined) {
+        setMotion(motion);
+      }
       if (localStorage && _options.remember) {
          if (localStorage["mediascape_vpbr"]) {
             var vpbr = JSON.parse(localStorage["mediascape_vpbr"]);
@@ -521,23 +558,19 @@ var mediascape = function(_MS_) {
       }
     }
 
-    var onchange = function(e) {
-      _bad = 0;
-      _samples = [];
-      _last_skip = null;
-      if (_update_func != undefined) {
-        _update_func(e);          
-      } else {
-        console.log("WARNING: onchange but no update func yet");
+    var query = function() {
+      // Handle both msvs and timing objects
+      if (_motion.version == 3) {
+        var q = _motion.query();
+        return {
+          pos: q.position,
+          vel: q.velocity,
+          acc: q.acceleration
+        }
       }
+      return _motion.query();
     }
 
-    var setMotion = function(motion) {
-      _bad = 0;
-      _motion.off("change", onchange);
-      _motion = motion;
-      _motion.on("change", onchange);
-    };
 
     var setSkew = function(skew) {
       _options.skew = skew;
@@ -665,6 +698,9 @@ var mediascape = function(_MS_) {
       }
     }
 
+
+
+
     // Export the API
     API = {
       setSkew: setSkew,
@@ -684,9 +720,11 @@ var mediascape = function(_MS_) {
   return _MS_;
 } (mediascape || {});
 
+
 // Support mcorp integration too
-if (MCorp) {
-  MCorp.mediaSync = mediascape.mediaSync;
-  MCorp.mediaNeedKick = mediascape.mediaNeekKick;
+if (!window.hasOwnProperty("MCorp")) {
+  MCorp = {};
 }
 
+MCorp.mediaSync = mediascape.mediaSync;
+MCorp.mediaNeedKick = mediascape.mediaNeedKick;
