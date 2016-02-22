@@ -5,4 +5,4 @@ MediaSync is now maintained as part of Timingsrc repository.
 
 [Timingsrc GitHub](https://github.com/webtiming/timingsrc/)
 
-[Timingsrc Homepate](http://webtiming.github.io/timingsrc/) 
+[Timingsrc Website](http://webtiming.github.io/timingsrc/) 
